@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,5 +19,9 @@ public class Racket : MonoBehaviour
             transform.right * (Input.GetAxisRaw("Horizontal") * _accel),
             ForceMode.Impulse
         );
+        if (Input.GetKey(KeyCode.Space))
+        {
+            _rb.AddForce(new Vector3(0f, 2f, 0f));
+        }
     }
 }

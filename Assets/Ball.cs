@@ -20,15 +20,6 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
-        if (_firstMagnitude <= 0)
-        {
-            _firstMagnitude = _rb.velocity.magnitude;
-        }
         Debug.Log(_rb.velocity.magnitude);
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        _rb.velocity = _firstMagnitude * _rb.velocity.normalized;
     }
 }
