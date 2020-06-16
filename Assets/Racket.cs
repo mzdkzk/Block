@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Racket : MonoBehaviour
 {
-    private float _speed = 100.0f;
+    private float _speed = 500.0f;
     private float _initY;
     private float _currentY;
     private bool _isAttacking;
@@ -20,7 +20,7 @@ public class Racket : MonoBehaviour
     void Update()
     {
         _rb.AddForce(
-            transform.right * (Input.GetAxisRaw("Horizontal") * _speed),
+            new Vector3(Input.GetAxisRaw("Horizontal") * _speed, 0f, 0f),
             ForceMode.Impulse
         );
         if (Input.GetKeyDown(KeyCode.Space))
