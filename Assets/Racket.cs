@@ -15,9 +15,11 @@ public class Racket : MonoBehaviour
 
     void Update()
     {
+        var inputH = Input.GetAxisRaw("Horizontal");
         _rb.AddForce(
-            new Vector3(Input.GetAxisRaw("Horizontal") * _speed, 0f, 0f),
+            new Vector3(inputH * _speed, 0f, 0f),
             ForceMode.Impulse
         );
+        //transform.rotation = Quaternion.Euler(0f, 0f, -10f * inputH);
     }
 }
