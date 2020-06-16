@@ -20,6 +20,5 @@ public class Racket : MonoBehaviour
             new Vector3(inputH * _speed, 0f, 0f),
             ForceMode.Impulse
         );
-        //transform.rotation = Quaternion.Euler(0f, 0f, -10f * inputH);
     }
 }
