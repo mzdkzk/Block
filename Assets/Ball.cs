@@ -13,13 +13,13 @@ public class Ball : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _rb.AddForce(
-            (transform.forward + transform.right) * _speed,
+            (Vector3.up + Vector3.right) * _speed,
             ForceMode.VelocityChange
         );
     }
 
     void Update()
     {
-        Debug.Log(_rb.velocity.magnitude);
+        
     }
 }
