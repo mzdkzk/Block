@@ -15,6 +15,8 @@ public class Racket : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameController.State == GameState.Finish) return;
+
         var inputH = Input.GetAxisRaw("Horizontal");
         _rb.AddForce(
             new Vector3(inputH * _speed, 0f, 0f),

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
     private readonly List<Target> _targets = new List<Target>();
+    public static GameState State { get; private set; } = GameState.Playing;
 
     void Start()
     {
@@ -27,18 +29,20 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (IsFinished())
+        if (IsFinished() && State == GameState.Playing)
         {
-            Debug.Log("クリア！");
+            State = GameState.Finish;
         }
     }
 
     private bool IsFinished()
     {
-        foreach (var target in _targets)
-        {
-            if (!target.IsLighting) return false;
-        }
-        return true;
+        return _targets.All(target => target.IsLighting);
     }
+}
+
+public enum GameState
+{
+    Playing,
+    Finish
 }
