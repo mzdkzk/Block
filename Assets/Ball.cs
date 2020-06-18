@@ -29,8 +29,6 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        var newV = _firstMagnitude * _rb.velocity.normalized;
-        newV.y += 0.1f;
-        _rb.velocity = newV;
+        _rb.velocity = _firstMagnitude * _rb.velocity.normalized;
     }
 }
